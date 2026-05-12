@@ -19,7 +19,7 @@ class CustomNet(nn.Module):
         self.relu3 = nn.ReLU()
         self.pool3 = nn.MaxPool2d(kernel_size=2, stride=2)
 
-        self.fc1 = nn.Linear(256 * 28 * 28, num_classes)
+        self.fc1 = nn.Linear(256 * 8 * 8, num_classes)
 
     def forward(self, x):
 

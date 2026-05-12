@@ -2,9 +2,9 @@
 
 import torch
 import torch.nn as nn
-from FAIMDL_Lab3.data.dataloader import get_dataloaders
-from FAIMDL_Lab3.models.custom_model import CustomNet
-from FAIMDL_Lab3.utils.visualization import visualize_samples
+from data.dataloader import get_dataloaders
+from models.custom_model import CustomNet
+from utils.visualization import visualize_samples
 
 
 def train(epoch, model, train_loader, criterion, optimizer, device):
@@ -33,7 +33,7 @@ def train(epoch, model, train_loader, criterion, optimizer, device):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
         
-        print(f"Train Epoch: {epoch}\n Loss: {running_loss/len(train_loader)}\n Accuracy: {100*correct/total}")
+    print(f"Train Epoch: {epoch}\n Loss: {running_loss/len(train_loader)}\n Accuracy: {100*correct/total}")
 
 
 # Validation loop function
@@ -85,6 +85,6 @@ if __name__ == "__main__":
     
     print(f"Best validation accuracy: {best_acc}")
     
-    visualize_samples(train_loader = train_loader, device=device)
+    visualize_samples(train_loader = train_loader)
     
 
