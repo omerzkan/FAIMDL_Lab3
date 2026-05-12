@@ -5,7 +5,7 @@ import requests
 from io import BytesIO
 
 
-def download_tiny_imagenet(data_dir="data/tiny-imagenet-200"):
+def download_tiny_imagenet(data_dir="dataset/tiny-imagenet-200"):
     
     if os.path.exists(data_dir):
         print(f"Dataset already exists at {data_dir}, skipping download.")
@@ -17,7 +17,7 @@ def download_tiny_imagenet(data_dir="data/tiny-imagenet-200"):
     
     print("Extracting...")
     with zipfile.ZipFile(BytesIO(response.content)) as zip_file:
-        zip_file.extractall("data")
+        zip_file.extractall("dataset")
     
     # Reorganize validation set into class subdirectories
     # (required by ImageFolder)
