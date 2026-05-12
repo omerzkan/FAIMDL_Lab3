@@ -45,8 +45,7 @@ def visualize_samples(dataloader_train):
       break
 
   plt.tight_layout()
-  plt.show()
   plt.savefig("samples.png")
   print("Saved visualization to samples.png")
-  from IPython.display import Image, display
-  display(Image("samples.png"))
+  plt.show()
+  
