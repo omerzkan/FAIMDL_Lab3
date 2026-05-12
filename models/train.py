@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from FAIMDL_Lab3.data.dataloader import get_dataloaders
 from FAIMDL_Lab3.models.custom_model import CustomNet
+from FAIMDL_Lab3.utils.visualization import visualize_samples
 
 
 def train(epoch, model, train_loader, criterion, optimizer, device):
@@ -83,4 +84,7 @@ if __name__ == "__main__":
             torch.save(model.state_dict(), "checkpoints/best_model.pth")
     
     print(f"Best validation accuracy: {best_acc}")
+    
+    visualize_samples(train_loader = train_loader, device=device)
+    
 
