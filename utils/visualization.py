@@ -1,4 +1,6 @@
 
+from IPython.display import Image, display
+from networkx import display
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -44,3 +46,7 @@ def visualize_samples(dataloader_train):
 
   plt.tight_layout()
   plt.show()
+  plt.savefig("samples.png")
+  print("Saved visualization to samples.png")
+  from IPython.display import Image, display
+  display(Image("samples.png"))

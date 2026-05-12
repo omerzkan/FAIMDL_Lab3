@@ -31,10 +31,11 @@ def train(epoch, model, train_loader, criterion, optimizer, device):
         _, predicted = outputs.max(1)    
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
-        
-    print(f"Train Epoch: {epoch}\n Loss: {running_loss/len(train_loader)}\n Accuracy: {100*correct/total}")
-
-
-
     
+    train_accuracy = 100 * correct / total
+    train_loss = running_loss / len(train_loader)
+    print(f"Train Epoch: {epoch}\nLoss: {train_loss}, Accuracy: {train_accuracy}")
+
+    return train_accuracy, train_loss
+
 
